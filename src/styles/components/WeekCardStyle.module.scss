@@ -1,0 +1,17 @@
+@import "../variables.scss";
+
+.week_card {
+  width: 120px;
+  height: 177px;
+  background-color: $c-background-second;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  //   padding: 15px;
+
+  .temp {
+    display: flex;
+  }
+}

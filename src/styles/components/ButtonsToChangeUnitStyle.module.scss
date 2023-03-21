@@ -1,0 +1,25 @@
+@import "../variables.scss";
+
+.buttons_container {
+  width: 100%;
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+
+  button {
+    width: 40px;
+    height: 40px;
+    background: $c-text-white;
+    color: $c-text-dark-grey;
+    font-weight: 700;
+    font-size: 18px;
+    border: none;
+    border-radius: 50%;
+
+    &:active,
+    &:hover {
+      background-color: $c-text-dark-grey;
+      color: $c-text-white;
+    }
+  }
+}

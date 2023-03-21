@@ -15,7 +15,7 @@ export const Sidebar = () => {
         <Image src="/icons/Clear.png" alt="image" width={100} height={100} />
       </div>
       <h1>
-        <span>15</span>oC
+        <span>15</span>&deg;C
       </h1>
       <h2>Shower</h2>
       <div>
