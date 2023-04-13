@@ -3,14 +3,23 @@ import { WeekCard } from "./WeekCard";
 
 import styles from "../styles/components/WeekWeatherStyle.module.scss";
 
-export const WeekWeather = () => {
+type WeekProps = { week: any };
+
+export const WeekWeather = ({ week }: WeekProps) => {
   return (
     <div className={styles.week_weather}>
-      <WeekCard />
-      <WeekCard />
-      <WeekCard />
-      <WeekCard />
-      <WeekCard />
+      {week.map((el: any) => {
+        return (
+          <WeekCard
+            id={el.id}
+            key={el.id}
+            date={el.datetime}
+            max={el.tempmax}
+            min={el.tempmin}
+            icon={el.icon}
+          />
+        );
+      })}
     </div>
   );
 };

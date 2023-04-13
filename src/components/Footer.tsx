@@ -5,7 +5,7 @@ export const Footer = () => {
     <p>
       created by{" "}
       <a href="https://devchallenges.io/portfolio/annakoruc">annakoruc</a> -
-      devChallenges
+      devChallenges.io
     </p>
   );
 };

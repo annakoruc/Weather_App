@@ -10,15 +10,43 @@
   align-items: center;
   justify-content: space-around;
 
+  color: $c-text-grey;
+
   .weather_img {
-    background: url("../../../public/Cloud-background.png");
+    width: 100%;
+    height: 25%;
+    display: grid;
+    place-items: center;
+    position: relative;
+
+    .background {
+      width: 100%;
+      height: 100%;
+      background: center url("../../../public/Cloud-background.png");
+      background-size: 150%;
+      filter: opacity(10%);
+      position: absolute;
+      background-repeat: no-repeat;
+    }
   }
 
   .location {
     display: flex;
+    align-items: center;
+
+    svg {
+      fill: $c-text-grey;
+      scale: 70%;
+    }
+  }
+
+  .todayDate {
+    display: flex;
+    gap: 20px;
   }
 
   span {
     font-size: 144px;
+    color: $c-text-white;
   }
 }
