@@ -1,6 +1,8 @@
 import React from "react";
 
 import styles from "../styles/components/TodaysHightlightsStyle.module.scss";
+import { PercentageScale } from "./PercentageScale";
+import { WindDir } from "./WindDir";
 
 type Props = {
   todayDate: {
@@ -20,20 +22,30 @@ export const TodaysHightlights = ({ todayDate }: Props) => {
       <div className={styles.hightlights}>
         <div className={styles.wind}>
           <h4>Wind Status</h4>
-          <p>{todayDate.windspeed}</p>
+          <p>
+            <span>{todayDate.windspeed}</span> mph
+          </p>
+          <WindDir dir={todayDate.winddir} />
         </div>
 
         <div className={styles.humidity}>
           <h4>Humidity</h4>
-          <p>{todayDate.humidity}</p>
+          <p>
+            <span>{todayDate.humidity}</span> %
+          </p>
+          <PercentageScale percent={todayDate.humidity} />
         </div>
         <div className={styles.visibility}>
           <h4>Visibility</h4>
-          <p>{todayDate.visibility}</p>
+          <p>
+            <span>{todayDate.visibility}</span> miles
+          </p>
         </div>
         <div className={styles.air}>
           <h4>Air Pressure</h4>
-          <p>{todayDate.pressure}</p>
+          <p>
+            <span>{todayDate.pressure}</span> mb
+          </p>
         </div>
       </div>
     </div>

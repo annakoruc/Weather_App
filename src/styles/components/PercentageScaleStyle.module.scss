@@ -1,0 +1,32 @@
+@import "../variables.scss";
+
+.percentageScale {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  gap: 5px;
+
+  p {
+    font-size: 10px;
+    align-self: flex-end;
+  }
+
+  .percent {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .scale {
+    width: 100%;
+    height: 8px;
+    background-color: $c-text-grey;
+    border-radius: 5px;
+
+    .yellowScale {
+      background-color: $c-yellow;
+      height: 100%;
+      border-radius: 5px;
+    }
+  }
+}

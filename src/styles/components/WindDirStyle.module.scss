@@ -1,0 +1,14 @@
+@import "../variables.scss";
+
+.windDir {
+  display: flex;
+  align-items: center;
+  p {
+    font-size: 14px;
+  }
+
+  svg {
+    fill: $c-text-dark-grey;
+    scale: 70%;
+  }
+}
