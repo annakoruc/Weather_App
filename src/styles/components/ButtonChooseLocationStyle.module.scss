@@ -1,0 +1,61 @@
+@import "../variables.scss";
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 46px;
+
+  .chooseButton {
+    background: $c-button-grey;
+    color: $c-text-white;
+    border: none;
+    padding: 0 18px;
+    font-size: 16px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+
+  .gpsButton {
+    background: $c-button-grey;
+    border-radius: 50%;
+    border: none;
+    display: grid;
+    place-items: center;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    svg {
+      scale: 60%;
+      fill: $c-text-white;
+    }
+  }
+}
+
+.searchBar {
+  background: $c-background-second;
+  z-index: 10;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  padding: 46px;
+
+  .inputChoose {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+
+    button {
+      background: $c-blue;
+      color: $c-text-white;
+      font-weight: 600;
+      font-size: 16px;
+      border: none;
+      padding: 14px 19px;
+    }
+
+    input {
+      border: $c-text-white;
+      background-color: none;
+    }
+  }
+}

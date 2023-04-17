@@ -2,6 +2,8 @@ import styles from "../styles/components/SidebarStyle.module.scss";
 import { WeatherIcon } from "./WeatherIcon";
 import { LocationIcon } from "../../public/icons/LocationIcon";
 import { TempWithUnits } from "./TempWithUnits";
+import { ButtonChooseLocation } from "./ButtonChooseLocation";
+import { ButtonSearchLocation } from "./ButtonSearchLocation";
 
 type Props = {
   todayDate: {
@@ -20,10 +22,7 @@ export const Sidebar = ({ todayDate, currentWeather, location }: Props) => {
 
   return (
     <div className={styles.sidebar}>
-      <div>
-        <button>Button</button>
-        <button>Button</button>
-      </div>
+      <ButtonChooseLocation />
       <div className={styles.weather_img}>
         <div className={styles.background} />
         <WeatherIcon apiIcon={currentWeather.icon} width={250} height={200} />

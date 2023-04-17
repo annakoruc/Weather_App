@@ -12,7 +12,7 @@ export const WeekWeather = ({ week }: WeekProps) => {
         return (
           <WeekCard
             id={el.id}
-            key={el.id}
+            key={el.datetime}
             date={el.datetime}
             max={el.tempmax}
             min={el.tempmin}
