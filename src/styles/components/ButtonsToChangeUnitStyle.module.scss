@@ -16,10 +16,14 @@
     border: none;
     border-radius: 50%;
 
-    &:active,
     &:hover {
       background-color: $c-text-dark-grey;
       color: $c-text-white;
     }
+  }
+
+  .active {
+    background-color: $c-text-dark-grey;
+    color: $c-text-white;
   }
 }

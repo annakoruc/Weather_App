@@ -9,7 +9,7 @@ type Props = {
 
 export const WindDir = ({ dir }: Props) => {
   const windDirection = Windrose.getPoint(dir, { depth: 2 });
-  console.log(dir);
+
   return (
     <div className={styles.windDir}>
       <div style={{ transform: `rotate(${dir - 180}deg)` }}>

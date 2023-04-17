@@ -13,5 +13,11 @@
 
   .temp {
     display: flex;
+    gap: 10px;
+    // justify-content: space-between;
+  }
+
+  .min {
+    color: $c-text-grey;
   }
 }

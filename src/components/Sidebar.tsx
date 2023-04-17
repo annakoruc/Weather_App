@@ -1,10 +1,7 @@
-import Image from "next/image";
-import React from "react";
-
 import styles from "../styles/components/SidebarStyle.module.scss";
-import location from "../../public/icons/location.svg";
 import { WeatherIcon } from "./WeatherIcon";
 import { LocationIcon } from "../../public/icons/LocationIcon";
+import { TempWithUnits } from "./TempWithUnits";
 
 type Props = {
   todayDate: {
@@ -20,7 +17,6 @@ type Props = {
 
 export const Sidebar = ({ todayDate, currentWeather, location }: Props) => {
   let dayDate = new Date(todayDate.datetime);
-  const tempC = ((currentWeather.temp - 32) / 1.8).toFixed(1);
 
   return (
     <div className={styles.sidebar}>
@@ -30,11 +26,9 @@ export const Sidebar = ({ todayDate, currentWeather, location }: Props) => {
       </div>
       <div className={styles.weather_img}>
         <div className={styles.background} />
-        <WeatherIcon apiIcon={currentWeather.icon} width={210} height={200} />
+        <WeatherIcon apiIcon={currentWeather.icon} width={250} height={200} />
       </div>
-      <h1>
-        <span>{tempC}</span>&deg;C
-      </h1>
+      <TempWithUnits className={styles.tempHeight} temp={currentWeather.temp} />
       <h2>{currentWeather.conditions}</h2>
       <div className={styles.todayDate}>
         <p>Today</p>
