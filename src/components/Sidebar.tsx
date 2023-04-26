@@ -1,31 +1,29 @@
-import styles from "../styles/components/SidebarStyle.module.scss";
+import { useContext } from "react";
+import { WeatherContext } from "@/context/WeatherContext";
+
 import { WeatherIcon } from "./WeatherIcon";
-import { LocationIcon } from "../../public/icons/LocationIcon";
 import { TempWithUnits } from "./TempWithUnits";
 import { ButtonChooseLocation } from "./ButtonChooseLocation";
-import { ButtonSearchLocation } from "./ButtonSearchLocation";
 
-type Props = {
-  todayDate: {
-    datetime: string;
-  };
-  currentWeather: {
-    temp: number;
-    icon: string;
-    conditions: string;
-  };
-  location: string;
-};
+import { LocationIcon } from "@/assets/icons/LocationIcon";
+import styles from "../styles/components/SidebarStyle.module.scss";
 
-export const Sidebar = ({ todayDate, currentWeather, location }: Props) => {
+export const Sidebar = () => {
+  const { todayDate, currentWeather, city } = useContext(WeatherContext);
   let dayDate = new Date(todayDate.datetime);
+
+  const showNameOfLocation = () => {
+    const hasNumber = /\d/;
+
+    return hasNumber.test(city) ? "My location" : city;
+  };
 
   return (
     <div className={styles.sidebar}>
       <ButtonChooseLocation />
       <div className={styles.weather_img}>
         <div className={styles.background} />
-        <WeatherIcon apiIcon={currentWeather.icon} width={250} height={200} />
+        <WeatherIcon apiIcon={currentWeather.icon} />
       </div>
       <TempWithUnits className={styles.tempHeight} temp={currentWeather.temp} />
       <h2>{currentWeather.conditions}</h2>
@@ -36,7 +34,7 @@ export const Sidebar = ({ todayDate, currentWeather, location }: Props) => {
       </div>
       <div className={styles.location}>
         <LocationIcon />
-        <p>{location}</p>
+        <p>{showNameOfLocation()}</p>
       </div>
     </div>
   );

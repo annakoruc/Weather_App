@@ -1,7 +1,9 @@
 import React from "react";
-import { WindIcon } from "../../public/icons/WindIcon";
-import Windrose from "windrose";
+
 import styles from "../styles/components/WindDirStyle.module.scss";
+import { WindIcon } from "@/assets/icons/WindIcon";
+
+const Windrose = require("windrose");
 
 type Props = {
   dir: number;

@@ -1,35 +1,46 @@
-import { Raleway } from "next/font/google";
+"use client";
+
+import { useContext, useEffect } from "react";
 import { getData } from "./api/getData";
-import { Footer, Sidebar, TodaysHightlights, WeekWeather } from "@/components";
-import ButtonsToChangeUnit from "@/components/ButtonsToChangeUnit";
+import {
+  Footer,
+  Sidebar,
+  TodaysHightlights,
+  WeekWeather,
+  ButtonsToChangeUnit,
+} from "@/components";
+import { WeatherContext } from "@/context/WeatherContext";
 
 import "../styles/globals.scss";
 import styles from "../styles/pageStyle.module.scss";
-import { AppContext, ContextProvider } from "@/context/AppContext";
 
-const raleway = Raleway({ subsets: ["latin"], variable: "--font-raleway" });
+export default function Home() {
+  const {
+    city,
+    setNewCurrentWeather,
+    currentWeather,
+    setCurrentDate,
+    setCurrentWeek,
+  } = useContext(WeatherContext);
 
-export default async function Home() {
-  const date = await getData("Szczecin, poland");
-  const todayDate = date.days[0];
-  const currentWeather = date.currentConditions;
-  const weekDate = date.days.slice(1, 6);
+  useEffect(() => {
+    getData(city).then((data) => {
+      setCurrentDate(data?.days[0]);
+      setNewCurrentWeather(data?.currentConditions);
+      setCurrentWeek(data?.days.slice(1, 6));
+      console.log(data);
+    });
+  }, [city]);
 
   return (
-    <ContextProvider>
-      <div className={`${raleway.className} ${styles.layout}`}>
-        <Sidebar
-          todayDate={todayDate}
-          currentWeather={currentWeather}
-          location={date.address}
-        />
-        <div className={styles.main_page}>
-          <ButtonsToChangeUnit />
-          <WeekWeather week={weekDate} />
-          <TodaysHightlights todayDate={currentWeather} />
-          <Footer />
-        </div>
+    <div className={styles.layout}>
+      <Sidebar />
+      <div className={styles.main_page}>
+        <ButtonsToChangeUnit />
+        <WeekWeather />
+        <TodaysHightlights />
+        <Footer />
       </div>
-    </ContextProvider>
+    </div>
   );
 }

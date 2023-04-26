@@ -1,13 +1,10 @@
-import Image from "next/image";
 import React from "react";
 
 type Props = {
   apiIcon: string;
-  width: number;
-  height: number;
 };
 
-export const WeatherIcon = ({ apiIcon, width, height }: Props) => {
+export const WeatherIcon = ({ apiIcon }: Props) => {
   const srcIcon = (icon: string) => {
     switch (icon) {
       case "clear-day":
@@ -50,12 +47,6 @@ export const WeatherIcon = ({ apiIcon, width, height }: Props) => {
     }
   };
 
-  return (
-    <Image
-      src={srcIcon(apiIcon)!}
-      width={width}
-      height={height}
-      alt="weather"
-    />
-  );
+  // eslint-disable-next-line @next/next/no-img-element
+  return <img src={srcIcon(apiIcon)!} alt="weather" />;
 };

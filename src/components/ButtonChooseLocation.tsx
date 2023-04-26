@@ -1,23 +1,26 @@
 import { getCities } from "@/app/api/getCities";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
-import { SearchLocationIcon } from "../../public/icons/SearchLocationIcon";
 import styles from "../styles/components/ButtonChooseLocationStyle.module.scss";
+import { SearchLocationIcon } from "@/assets/icons/SearchLocationIcon";
+import { SearchBar } from "./SearchBar";
+import { WeatherContext } from "@/context/WeatherContext";
 
 export const ButtonChooseLocation = () => {
+  const { setChoosenCity } = useContext(WeatherContext);
   const [searchBarIsOpen, setSearchBarIsOpen] = useState(false);
-  const [cities, setCities] = useState([]);
-
-  useEffect(() => {
-    getCities().then((data) => {
-      setCities(data.data);
-    });
-  }, []);
 
   const openSearchBar = () => {
     setSearchBarIsOpen(!searchBarIsOpen);
   };
 
+  const searchLocation = () => {
+    navigator.geolocation.getCurrentPosition((position) => {
+      setChoosenCity(
+        `${position.coords.latitude},${position.coords.longitude}`
+      );
+    });
+  };
   return (
     <>
       {!searchBarIsOpen && (
@@ -25,21 +28,13 @@ export const ButtonChooseLocation = () => {
           <button className={styles.chooseButton} onClick={openSearchBar}>
             Search for places
           </button>
-          <button className={styles.gpsButton}>
+          <button className={styles.gpsButton} onClick={searchLocation}>
             <SearchLocationIcon />
           </button>
         </div>
       )}
 
-      {searchBarIsOpen && (
-        <div className={styles.searchBar}>
-          <button onClick={openSearchBar}>X</button>
-          <div className={styles.inputChoose}>
-            <input placeholder="search location" />
-            <button>Search</button>
-          </div>
-        </div>
-      )}
+      {searchBarIsOpen && <SearchBar onClick={openSearchBar} />}
     </>
   );
 };

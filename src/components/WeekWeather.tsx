@@ -1,11 +1,12 @@
-import React from "react";
+import { useContext } from "react";
 import { WeekCard } from "./WeekCard";
 
 import styles from "../styles/components/WeekWeatherStyle.module.scss";
+import { WeatherContext } from "@/context/WeatherContext";
 
-type WeekProps = { week: any };
+export const WeekWeather = () => {
+  const { week } = useContext(WeatherContext);
 
-export const WeekWeather = ({ week }: WeekProps) => {
   return (
     <div className={styles.week_weather}>
       {week.map((el: any) => {

@@ -1,12 +1,12 @@
 "use client";
 
 import { useContext } from "react";
-import { AppContext } from "@/context/AppContext";
+import { UnitsContext } from "@/context/UnitsContext";
 
 import styles from "../styles/components/ButtonsToChangeUnitStyle.module.scss";
 
-const ButtonsToChangeUnit = () => {
-  let { units, toCelsius, toFahrenheit } = useContext(AppContext);
+export const ButtonsToChangeUnit = () => {
+  let { units, toCelsius, toFahrenheit } = useContext(UnitsContext);
 
   return (
     <div className={styles.buttons_container}>
@@ -26,4 +26,4 @@ const ButtonsToChangeUnit = () => {
   );
 };
 
-export default ButtonsToChangeUnit;
+// export default ButtonsToChangeUnit;

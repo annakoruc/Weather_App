@@ -1,4 +1,4 @@
-import { AppContext } from "@/context/AppContext";
+import { UnitsContext } from "@/context/UnitsContext";
 import { useContext } from "react";
 
 type Props = {
@@ -7,7 +7,7 @@ type Props = {
 };
 
 export const TempWithUnits = ({ temp, className }: Props) => {
-  const { units } = useContext(AppContext);
+  const { units } = useContext(UnitsContext);
 
   const tempC = ((temp - 32) / 1.8).toFixed(1);
 

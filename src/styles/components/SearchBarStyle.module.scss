@@ -1,0 +1,92 @@
+@import "../variables.scss";
+
+.searchBar {
+  background: $c-background-second;
+  z-index: 10;
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+
+  padding: 46px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 40px;
+
+  svg {
+    fill: $c-text-white;
+    scale: 70%;
+    align-self: flex-end;
+  }
+
+  .inputChoose {
+    display: grid;
+    grid-template-areas: "input" "button";
+    grid-template-columns: auto 100px;
+    justify-items: stretch;
+    width: 100%;
+    gap: 10px;
+
+    button {
+      grid-area: "button";
+      background: $c-blue;
+      color: $c-text-white;
+      font-weight: 600;
+      font-size: 16px;
+      border: none;
+      padding: 14px 19px;
+    }
+    div {
+      grid-area: "input";
+      flex-grow: 2;
+
+      input {
+        width: 100%;
+        height: 100%;
+        border: solid 1px $c-text-grey;
+        background: none;
+        color: $c-text-dark-grey;
+        font-weight: 500;
+        font-size: 16px;
+        padding-left: 50px;
+      }
+
+      svg {
+        position: absolute;
+        scale: 50%;
+        fill: $c-text-dark-grey;
+      }
+    }
+  }
+  ul {
+    height: 100%;
+    width: 100%;
+    align-self: flex-start;
+
+    li {
+      list-style-type: none;
+      background-color: transparent;
+      padding: 23px 12px;
+      margin: 10px 0;
+      color: $c-text-white;
+      cursor: pointer;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+
+      font-weight: 500;
+      font-size: 16px;
+
+      display: flex;
+      justify-content: space-between;
+
+      &:hover {
+        border: solid 1px $c-text-dark-grey;
+
+        &:after {
+          content: ">";
+        }
+      }
+    }
+  }
+}

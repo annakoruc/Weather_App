@@ -20,7 +20,7 @@ export const WeekCard = ({ max, min, date, icon, id }: Props) => {
   return (
     <div className={styles.week_card}>
       <p>{weekDay}</p>
-      <WeatherIcon apiIcon={icon} width={55} height={50} />
+      <WeatherIcon apiIcon={icon} />
       <div className={styles.temp}>
         <TempWithUnits temp={max} />
         <TempWithUnits className={styles.min} temp={min} />
