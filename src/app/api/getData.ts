@@ -6,7 +6,7 @@ export const getData = async (location: string) => {
     .slice(0, 10);
 
   const res = await fetch(
-    `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}/${currentDate}/${lastDay}?key=MGFE9K6BYYKAS6MSEGCB7JPMD`
+    `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}/${currentDate}/${lastDay}?key=${process.env.NEXT_PUBLIC_LOCAL_WEATHER_API_KEY}`
   );
 
   if (!res.ok) {
