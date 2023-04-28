@@ -43,7 +43,7 @@ export const SearchBar = ({ onClick }: Props) => {
     if (inputValue.length > 0) {
       const mainSearchRegex = new RegExp(inputValue, "i");
       const newSearch = cities.filter((el) => mainSearchRegex.test(el));
-      console.log("jest");
+
       setSearchedCities(newSearch);
     }
   };

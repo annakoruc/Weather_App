@@ -1,6 +1,8 @@
 @import "../variables.scss";
 
 .sidebar {
+  flex-grow: 1;
+  flex-basis: 460px;
   position: relative;
   background-color: $c-background-second;
   width: 30%;

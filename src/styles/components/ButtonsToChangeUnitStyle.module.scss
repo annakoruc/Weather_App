@@ -26,4 +26,8 @@
     background: $c-text-white;
     color: $c-button-dark-grey;
   }
+
+  @media (max-width: 600px) {
+    display: none;
+  }
 }

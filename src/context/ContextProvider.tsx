@@ -27,12 +27,10 @@ export const ContextProvider = ({ children }: Props) => {
 
   const toCelsius = () => {
     setUnits("celsius");
-    console.log(units);
   };
 
   const toFahrenheit = () => {
     setUnits("fahrenheit");
-    console.log(units);
   };
 
   const setChoosenCity = (newCity: string) => {

@@ -28,7 +28,6 @@ export default function Home() {
       setCurrentDate(data?.days[0]);
       setNewCurrentWeather(data?.currentConditions);
       setCurrentWeek(data?.days.slice(1, 6));
-      console.log(data);
     });
   }, [city]);
 

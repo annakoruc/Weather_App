@@ -29,7 +29,7 @@
       "wind-area humidity-area"
       "visibility-area air-area";
 
-    grid-template-columns: auto auto;
+    grid-template-columns: repeat(auto-fill, minmax(200px));
     grid-template-rows: 200px 160px;
     gap: 48px;
 
@@ -62,6 +62,11 @@
 
     .air {
       grid-area: air-area;
+    }
+
+    @media (max-width: 650px) {
+      display: flex;
+      flex-direction: column;
     }
   }
 }

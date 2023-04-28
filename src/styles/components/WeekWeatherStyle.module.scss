@@ -4,4 +4,12 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+  // padding: 40px 0;
+
+  @media (max-width: 600px) {
+    justify-content: center;
+    gap: 30px;
+    // padding: 26px;
+  }
 }
