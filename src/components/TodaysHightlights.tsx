@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 
-import styles from "../styles/components/TodaysHightlightsStyle.module.scss";
+import styles from "../styles/components/TodaysHightLightsStyle.module.scss";
 import { PercentageScale } from "./PercentageScale";
 import { WindDir } from "./WindDir";
 import { WeatherContext } from "@/context/WeatherContext";
