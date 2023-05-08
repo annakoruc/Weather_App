@@ -29,6 +29,7 @@ export default function Home() {
       setNewCurrentWeather(data?.currentConditions);
       setCurrentWeek(data?.days.slice(1, 6));
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [city]);
 
   return (

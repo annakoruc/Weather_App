@@ -17,7 +17,7 @@ export const SearchBar = ({ onClick }: Props) => {
   const [country, setCountry] = useState("");
 
   const [searchedCities, setSearchedCities] = useState([]);
-  const inputRef = useRef<HTMLInputElement>();
+  const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     getCities().then((data) => {
@@ -32,19 +32,22 @@ export const SearchBar = ({ onClick }: Props) => {
     });
   }, [inputRef]);
 
-  const changeSelectCity = (event: React.MouseEventHandler<HTMLLIElement>) => {
-    setChoosenCity(event.target.title);
+  const changeSelectCity = (event: React.MouseEvent<HTMLLIElement>) => {
+    const target = event.target as HTMLLIElement;
+    setChoosenCity(target.title);
     onClick();
   };
 
   const changeHandler = () => {
-    const inputValue = inputRef.current.value;
+    if (inputRef.current !== null) {
+      const inputValue = inputRef.current.value;
 
-    if (inputValue.length > 0) {
-      const mainSearchRegex = new RegExp(inputValue, "i");
-      const newSearch = cities.filter((el) => mainSearchRegex.test(el));
+      if (inputValue.length > 0) {
+        const mainSearchRegex = new RegExp(inputValue, "i");
+        const newSearch = cities.filter((el) => mainSearchRegex.test(el));
 
-      setSearchedCities(newSearch);
+        setSearchedCities(newSearch);
+      }
     }
   };
 
@@ -54,12 +57,7 @@ export const SearchBar = ({ onClick }: Props) => {
       <label className={styles.inputChoose}>
         <div>
           <SearchIcon />
-          <input
-            type="search"
-            ref={inputRef}
-            placeholder="search location"
-            // list="cities"
-          />
+          <input type="search" ref={inputRef} placeholder="search location" />
         </div>
         <button onClick={changeHandler}>Search</button>
       </label>
