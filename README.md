@@ -1,8 +1,7 @@
 # Weather App
 
-
-   Solution for a challenge from  <a href="http://devchallenges.io" target="_blank">Devchallenges.io</a>.
-
+<div align="center">
+   <p>Solution for a challenge from  <a href="http://devchallenges.io" target="_blank">Devchallenges.io</a>.</p>
   <h3>
     <a href="https://weather-app-annakoruc.vercel.app/">
       Demo
@@ -12,7 +11,7 @@
       Challenge
     </a>
   </h3>
-
+</div>
 ## Overview
 
 ![image](https://user-images.githubusercontent.com/95089940/237056499-383ea455-4c0d-459f-a188-99878b93e5a9.png)
